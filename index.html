@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='mainApp'>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angular JS Customer Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular-route.js"></script>
+
+    <script src="./controllers/listado.controller.js"></script>
+    <script src="./controllers/alta.controller.js"></script>
+    <script src="./index.js"></script>
+</head>
+<body ng-controller='listadoController'>
+
+    <div ng-controller='mainController'>
+        <ng-route></ng-route>
+    </div> 
+
+    <button ng-click='listado.obtener()'>Obtener Todos</button>
+
+    <div ng-repeat='item in listaEmpleados'>
+        <br>{{item.nombre | json}}
+    </div>
+
+    <div ng-controller='altaController'>
+        {{opcion}}
+    </div>
+
+</body>
+</html>
