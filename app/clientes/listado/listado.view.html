@@ -1,45 +1,40 @@
-<div class="card" ng-controller="clienteController as cliente">
+<div class="card" ng-controller="listadoClientesController as listado">
   <div class="card-header">
     <div class="row">
       <div class="col col-m5-5">Listado de clientes</div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <a href="#!/nuevo"><i class="fas fa-plus"></i></a>
-    </div>
-  </div>
-  <div class="card-body">
 
-    <div class="table table-responsive">
+  <div class="card-body">
+    <table class="table">
       <thead>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Edad</th>
-        <th>{{cliente.cosa}}</th>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Acciones</th>
+        </tr>
       </thead>
       <tbody>
-
+        <tr ng-repeat="cliente in clientes">
+          <th scope="row">{{ cliente.id }}</th>
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.edad }}</td>
+          <td>{{ cliente.direccion }}</td>
+          <td>
+            <a href="#!/nuevo?id={{ cliente.id }}">
+              <i class="fas fa-edit"></i>
+            </a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="javascript:void(0);" ng-click="eliminar(cliente.id)">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+        </tr>
       </tbody>
-    </div>
-
-    <div class="col">ID</div>
-    <div class="col">Nombre</div>
-    <div class="col">Edad</div>
-    <div class="col">Dirección</div>
-    <div class="row" ng-repeat="cliente in listadoClientes">
-      <div class="col">
-        {{ cliente.id }}
-      </div>
-      <div class="col">
-        {{ cliente.nombre }}
-      </div>
-      <div class="col">
-        {{ cliente.edad }}
-      </div>
-      <div class="col">
-        {{ cliente.direccion }}
-      </div>
-    </div>
+    </table>
   </div>
+
+  <div class="card-footer"></div>
 </div>

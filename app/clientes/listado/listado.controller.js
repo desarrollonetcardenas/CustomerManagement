@@ -1,17 +1,5 @@
 'use strict';
 
-/**
- *
- * @param {Object} data
- */
-// function validateData(response) {
-
-//     if (!response.ok)
-//         return false;
-
-//     return true;
-// }
-
 angular
     .module('myApp.listado', ['ngRoute'])
     .config([
@@ -19,26 +7,44 @@ angular
         function ($routeProvider) {
             $routeProvider.when('/listado', {
                 templateUrl: 'clientes/listado/listado.view.html',
-                controller: 'clienteController'
+                controller: 'listadoClientesController'
             });
         }
     ])
-
-    .controller('clienteController', [
+    .controller('listadoClientesController', [
         'httpService',
-        function (httpService) {
-            let vm = this;
+        '$scope',
+        function (httpService, $scope) {
 
-            vm.cosa = 'asdfasdfas';
+            $scope.eliminar = function(id) {
 
-            return httpService.get('http://localhost:8003/api/clientes').then(response => {
-                if(response.statusText !== 'OK') {
-                    console.log(`Hubo un error ${JSON.stringify(response)}`);
-                    return false;
-                }
-                vm.listadoClientes = response.data;
-                return response.data;
-            });
+                httpService.delete(`http://localhost:8003/api/clientes/${id}`).then(response => {
+                    $scope.clientes = response.data;
 
+                    return response.data;
+                });
+
+                /**
+                 * Obtener la lista de clientes actualizada
+                 */
+                $scope.listado();
+            };
+
+            $scope.listado = function() {
+                return httpService.get('http://localhost:8003/api/clientes').then(response => {
+                    if(response.statusText !== 'OK') {
+                        console.warn(`Hubo un error ${JSON.stringify(response)}`);
+                        return false;
+                    }
+                    $scope.clientes = response.data;
+
+                    return response.data;
+                });
+            };
+
+            /**
+             * Otener listado de clientes al cargar la pagina
+             */
+            $scope.listado();
         }
     ]);

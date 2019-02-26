@@ -9,6 +9,9 @@ angular.module('myApp')
                 funciones = {
                     get: async (uri)  => {
                         return await $http.get(uri);
+                    },
+                    delete: async (uri) =>  {
+                        return await $http.delete(uri);
                     }
                 };
             } catch (error) {
