@@ -1,0 +1,36 @@
+<div class="card" ng-controller="CustomerController as customer">
+    <div class="card-header">
+        Agregar cliente
+        <h5>Llenar los datos del formulario</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col col-md-2">
+                <label for="Nombre">Nombre</label>
+            </div>
+            <div class="col col-md-2">
+                <input type="text" placeholder="Nombre" ng-model="customer.name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="Nombre">Apellidos</label>
+                <input type="text" placeholder="Nombre" ng-model="customer.lastName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="Nombre">Edad</label>
+                <input type="text" name="age" id="age" ng-model="customer.age">
+            </div>
+        </div>
+
+        <label for="" class="btn warning" ng-controller='validacionController'>
+        </label>
+    </div>
+    <div class="card-footer">
+        <a href="" class="btn btn-primary">Guardar</a>
+        <a href="#!/listado" class="btn btn-danger"><i class="fas fa-arrow-circle-left">Cancelar</i></a>
+    </div>
+
+</div>

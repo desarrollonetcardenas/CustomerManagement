@@ -1,0 +1,45 @@
+<div class="card" ng-controller="clienteController as cliente">
+  <div class="card-header">
+    <div class="row">
+      <div class="col col-m5-5">Listado de clientes</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <a href="#!/nuevo"><i class="fas fa-plus"></i></a>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <div class="table table-responsive">
+      <thead>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>{{cliente.cosa}}</th>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </div>
+
+    <div class="col">ID</div>
+    <div class="col">Nombre</div>
+    <div class="col">Edad</div>
+    <div class="col">Dirección</div>
+    <div class="row" ng-repeat="cliente in listadoClientes">
+      <div class="col">
+        {{ cliente.id }}
+      </div>
+      <div class="col">
+        {{ cliente.nombre }}
+      </div>
+      <div class="col">
+        {{ cliente.edad }}
+      </div>
+      <div class="col">
+        {{ cliente.direccion }}
+      </div>
+    </div>
+  </div>
+</div>

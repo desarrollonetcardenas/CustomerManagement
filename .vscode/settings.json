@@ -1,0 +1,7 @@
+{
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.tree.horizontalScrolling": true,
+    "eslint.enable": true,
+    "files.trimFinalNewlines": true
+}
